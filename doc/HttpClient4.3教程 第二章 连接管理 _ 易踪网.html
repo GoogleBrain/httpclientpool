@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://www.yeetrack.com/?p=782 -->
+<html class=" js rgba backgroundsize borderradius boxshadow textshadow opacity cssgradients csstransitions generatedcontent" lang="zh-CN"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HttpClient4.3教程 第二章 连接管理 | 易踪网 </title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/style.css">
+<link rel="pingback" href="https://www.yeetrack.com/xmlrpc.php">
+<link rel="dns-prefetch" href="https://www.yeetrack.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="易踪网 » Feed" href="https://www.yeetrack.com/?feed=rss2">
+<link rel="alternate" type="application/rss+xml" title="易踪网 » 评论Feed" href="https://www.yeetrack.com/?feed=comments-rss2">
+<link rel="alternate" type="application/rss+xml" title="易踪网 » HttpClient4.3教程 第二章 连接管理评论Feed" href="https://www.yeetrack.com/?feed=rss2&amp;p=782">
+		<script charset="utf-8" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/t.js.下载"></script><script src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/hm.js.下载"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.yeetrack.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.2"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/wp-emoji-release.min.js.下载" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-easyarchives-css" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/wp-easyarchives.css" type="text/css" media="screen">
+<link rel="stylesheet" id="wp-block-library-css" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="light-css" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/light.css" type="text/css" media="all">
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/jquery.js.下载"></script>
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/jquery-migrate.min.js.下载"></script>
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/modernizr-2.0.6.js.下载"></script>
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/hoverIntent.js.下载"></script>
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/superfish.js.下载"></script>
+<link rel="https://api.w.org/" href="https://www.yeetrack.com/index.php?rest_route=/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.yeetrack.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.yeetrack.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="HttpClient 4.3教程" href="https://www.yeetrack.com/?p=779">
+<link rel="next" title="CloseableHttpClient加载证书来访问https网站" href="https://www.yeetrack.com/?p=786">
+<meta name="generator" content="WordPress 5.2.2">
+<link rel="canonical" href="https://www.yeetrack.com/?p=782">
+<link rel="shortlink" href="https://www.yeetrack.com/?p=782">
+<link rel="alternate" type="application/json+oembed" href="https://www.yeetrack.com/index.php?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=https%3A%2F%2Fwww.yeetrack.com%2F%3Fp%3D782">
+<link rel="alternate" type="text/xml+oembed" href="https://www.yeetrack.com/index.php?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=https%3A%2F%2Fwww.yeetrack.com%2F%3Fp%3D782&amp;format=xml">
+<link rel="icon" href="https://www.yeetrack.com/wp-content/uploads/2018/03/yeetrack-150x150.jpg" sizes="32x32">
+<link rel="icon" href="https://www.yeetrack.com/wp-content/uploads/2018/03/yeetrack.jpg" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.yeetrack.com/wp-content/uploads/2018/03/yeetrack.jpg">
+<meta name="msapplication-TileImage" content="https://www.yeetrack.com/wp-content/uploads/2018/03/yeetrack.jpg">
+<script src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/share.js.下载"></script><link rel="stylesheet" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/slide_share.css"><link rel="stylesheet" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/share_style1_16.css"><link rel="stylesheet" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/share_popup.css"><link rel="stylesheet" href="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/select_share.css"></head>
+
+<body class="post-template-default single single-post postid-782 single-format-standard two-column right-sidebar single-author">
+
+
+	<div id="head-wrapper">
+				<header id="branding" role="banner">
+			<div id="header-group" class="clearfix">
+				<div id="header-logo">
+										<hgroup>
+						<h1 id="site-title"><span><a href="https://www.yeetrack.com/" title="易踪网" rel="home">易踪网</a></span></h1>
+						<h2 id="site-description">专注于互联网技术，我的一亩三分地</h2>
+					</hgroup>
+					
+	<div class="admired-social">
+
+		<ul class="admired-social">
+			
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="http://www.yeetrack.com/?feed=rss" title="RSS"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-rss.png" height="26" width="26" data-bd-imgshare-binded="1"></a></li>	
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="mailto:wangxuemeng90@126.com" title="联系我"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-mail.png" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="https://github.com/yeetrack" title="github"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/github.jpg" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="http://git.oschina.net/yeetrack" title="开源中国"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-osc.jpg" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="http://t.qq.com/gameace" title="腾讯微博"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-qqweibo.png" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="http://weibo.com/mengvictorace" title="新浪微博"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-weibo.png" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="https://twitter.com/yeetrack_it" title="twitter"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-twitter.png" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			<li style="margin-left:5px; style=" margin-bottom:5px;=""><a target="_blank" href="https://www.facebook.com/xuemeng.wang.10" title="facebook"><img src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/32-facebook.png" height="26" width="26" data-bd-imgshare-binded="1"></a></li>
+			
+
+					</ul>
+	</div><!-- .admired-social -->
+				</div>
+			</div>
+		</header><!-- #branding -->
+	</div><!-- #head-wrapper -->
+	
+<div id="page" class="hfeed">
+		<div id="nav-bottom-menu">
+		<div id="nav-bottom-wrap">
+			<nav id="nav-menu2" role="navigation">
+				<h3 class="assistive-text">主菜单</h3>
+								<div class="skip-link"><a class="assistive-text" href="https://www.yeetrack.com/?p=782#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="https://www.yeetrack.com/?p=782#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-header"><ul id="menu-%e6%88%91%e7%9a%84%e4%b8%80%e7%ba%a7%e8%8f%9c%e5%8d%95" class="sf-menu"><li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-173"><a title="易踪网" href="http://www.yeetrack.com/">首页</a></li>
+<li id="menu-item-167" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-167"><a title="互联网" href="https://www.yeetrack.com/?cat=32">互联网</a></li>
+<li id="menu-item-168" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-168"><a title="编程，代码" href="https://www.yeetrack.com/?cat=33">代码</a></li>
+<li id="menu-item-171" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-171"><a title="网络攻防" href="https://www.yeetrack.com/?cat=35">网络攻防</a></li>
+<li id="menu-item-172" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-172"><a title="软件" href="https://www.yeetrack.com/?cat=34">软件</a></li>
+<li id="menu-item-169" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-169"><a title="电影、美剧、音乐" href="https://www.yeetrack.com/?cat=36">影音</a></li>
+<li id="menu-item-170" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-170"><a href="https://www.yeetrack.com/?cat=37">杂谈</a></li>
+<li id="menu-item-174" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-174"><a title="博客变更日志" href="https://www.yeetrack.com/?cat=40">日志</a></li>
+<li id="menu-item-177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"><a title="关于我" href="https://www.yeetrack.com/?page_id=175">关于我</a></li>
+<li id="menu-item-712" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-712"><a href="https://www.yeetrack.com/?page_id=710">归档</a></li>
+</ul></div>							<form method="get" id="searchform" action="https://www.yeetrack.com/">
+		<label for="s" class="assistive-text">搜索</label>
+		<input type="text" class="field" name="s" id="s" placeholder="搜索">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="搜索">
+	</form>
+			</nav><!-- #nav-menu2 -->
+		</div>
+	</div>
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					
+<article id="post-782" class="post-782 post type-post status-publish format-standard hentry category-coding tag-java tag-7 tag-5 tag-42 tag-13 tag-41">
+	<nav id="nav-single">
+		<h3 class="assistive-text">Post navigation</h3>
+		<span class="nav-previous"><a href="https://www.yeetrack.com/?p=779" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+		<span class="nav-next"><a href="https://www.yeetrack.com/?p=786" rel="next">Next <span class="meta-nav">→</span></a></span>
+	</nav><!-- #nav-single -->
+	<header class="entry-header">
+		<h1 class="entry-title">HttpClient4.3教程 第二章 连接管理</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://www.yeetrack.com/?p=782" title="下午 2:39" rel="bookmark"><time class="entry-date" datetime="2013-10-11T14:39:49+08:00" pubdate="">2013 年 10 月 11 日</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://www.yeetrack.com/?author=2" title="View all posts by kongkong" rel="author">kongkong</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><br>
+<a name="Connection-persistence"></a></p>
+<h2>2.1.持久连接</h2>
+<p>两个主机建立连接的过程是很复杂的一个过程，涉及到多个数据包的交换，并且也很耗时间。Http连接需要的三次握手开销很大，这一开销对于比较小的http消息来说更大。但是如果我们直接使用已经建立好的http连接，这样花费就比较小，吞吐率更大。</p>
+<p>HTTP/1.1默认就支持Http连接复用。兼容HTTP/1.0的终端也可以通过声明来保持连接，实现连接复用。HTTP代理也可以在一定时间内保持连接不释放，方便后续向这个主机发送http请求。这种保持连接不释放的情况实际上是建立的持久连接。HttpClient也支持持久连接。</p>
+<p><a name="HTTP-connection-routing"></a></p>
+<h2>2.2.HTTP连接路由<span id="more-782"></span></h2>
+<p>HttpClient既可以直接、又可以通过多个中转路由（hops）和目标服务器建立连接。HttpClient把路由分为三种plain（明文 ），tunneled（隧道）和layered（分层）。隧道连接中使用的多个中间代理被称作代理链。</p>
+<p>客户端直接连接到目标主机或者只通过了一个中间代理，这种就是Plain路由。客户端通过第一个代理建立连接，通过代理链tunnelling，这种情况就是Tunneled路由。不通过中间代理的路由不可能时tunneled路由。客户端在一个已经存在的连接上进行协议分层，这样建立起来的路由就是layered路由。协议只能在隧道—&gt;目标主机，或者直接连接（没有代理），这两种链路上进行分层。</p>
+<p><a name="Route-computation"></a></p>
+<h3>2.2.1.路由计算</h3>
+<p><code>RouteInfo</code>接口包含了数据包发送到目标主机过程中，经过的路由信息。<code>HttpRoute</code>类继承了<code>RouteInfo</code>接口，是<code>RouteInfo</code>的具体实现，这个类是不允许修改的。<code>HttpTracker</code>类也实现了<code>RouteInfo</code>接口，它是可变的，HttpClient会在内部使用这个类来探测到目标主机的剩余路由。<code>HttpRouteDirector</code>是个辅助类，可以帮助计算数据包的下一步路由信息。这个类也是在HttpClient内部使用的。</p>
+<p><code>HttpRoutePlanner</code>接口可以用来表示基于http上下文情况下，客户端到服务器的路由计算策略。HttpClient有两个<code>HttpRoutePlanner</code>的实现类。<code>SystemDefaultRoutePlanner</code>这个类基于<code>java.net.ProxySelector</code>，它默认使用jvm的代理配置信息，这个配置信息一般来自系统配置或者浏览器配置。<code>DefaultProxyRoutePlanner</code>这个类既不使用java本身的配置，也不使用系统或者浏览器的配置。它通常通过默认代理来计算路由信息。</p>
+<p><a name="Secure-HTTP-connections"></a></p>
+<h3>2.2.2. 安全的Http连接</h3>
+<p>为了防止通过Http消息传递的信息不被未授权的第三方获取、截获，Http可以使用SSL/TLS协议来保证http传输安全，这个协议是当前使用最广的。当然也可以使用其他的加密技术。但是通常情况下，Http信息会在加密的SSL/TLS连接上进行传输。</p>
+<p><a name="HTTP-connection-managers"></a></p>
+<h2>2.3. HTTP连接管理器</h2>
+<p><a name="Managed-connections-and-connection-managers"></a></p>
+<h3>2.3.1. 管理连接和连接管理器</h3>
+<p>Http连接是复杂，有状态的，线程不安全的对象，所以它必须被妥善管理。一个Http连接在同一时间只能被一个线程访问。HttpClient使用一个叫做Http连接管理器的特殊实体类来管理Http连接，这个实体类要实现<code>HttpClientConnectionManager</code>接口。Http连接管理器在新建http连接时，作为工厂类;管理持久http连接的生命周期;同步持久连接（确保线程安全，即一个http连接同一时间只能被一个线程访问）。Http连接管理器和<code>ManagedHttpClientConnection</code>的实例类一起发挥作用，<code>ManagedHttpClientConnection</code>实体类可以看做http连接的一个代理服务器，管理着I/O操作。如果一个Http连接被释放或者被它的消费者明确表示要关闭，那么底层的连接就会和它的代理进行分离，并且该连接会被交还给连接管理器。这是，即使服务消费者仍然持有代理的引用，它也不能再执行I/O操作，或者更改Http连接的状态。</p>
+<p>下面的代码展示了如何从连接管理器中取得一个http连接：</p>
+<pre><code>    HttpClientContext context = HttpClientContext.create();
+    HttpClientConnectionManager connMrg = new BasicHttpClientConnectionManager();
+    HttpRoute route = new HttpRoute(new HttpHost("www.yeetrack.com", 80));
+    // 获取新的连接. 这里可能耗费很多时间
+    ConnectionRequest connRequest = connMrg.requestConnection(route, null);
+    // 10秒超时
+    HttpClientConnection conn = connRequest.get(10, TimeUnit.SECONDS);
+    try {
+        // 如果创建连接失败
+        if (!conn.isOpen()) {
+            // establish connection based on its route info
+            connMrg.connect(conn, route, 1000, context);
+            // and mark it as route complete
+            connMrg.routeComplete(conn, route, context);
+        }
+        // 进行自己的操作.
+    } finally {
+        connMrg.releaseConnection(conn, null, 1, TimeUnit.MINUTES);
+    }
+</code></pre>
+<p>如果要终止连接，可以调用<code>ConnectionRequest</code>的<code>cancel()</code>方法。这个方法会解锁被<code>ConnectionRequest</code>类<code>get()</code>方法阻塞的线程。</p>
+<p><a name="&quot;Simple-connection-manager"></a></p>
+<h3>2.3.2.简单连接管理器</h3>
+<p><code>BasicHttpClientConnectionManager</code>是个简单的连接管理器，它一次只能管理一个连接。尽管这个类是线程安全的，它在同一时间也只能被一个线程使用。<code>BasicHttpClientConnectionManager</code>会尽量重用旧的连接来发送后续的请求，并且使用相同的路由。如果后续请求的路由和旧连接中的路由不匹配，<code>BasicHttpClientConnectionManager</code>就会关闭当前连接，使用请求中的路由重新建立连接。如果当前的连接正在被占用，会抛出<code>java.lang.IllegalStateException</code>异常。</p>
+<p><a name="Pooling-connection-manager"></a></p>
+<h3>2.3.3.连接池管理器</h3>
+<p>相对<code>BasicHttpClientConnectionManager</code>来说，<code>PoolingHttpClientConnectionManager</code>是个更复杂的类，它管理着连接池，可以同时为很多线程提供http连接请求。Connections are pooled on a per route basis.当请求一个新的连接时，如果连接池有有可用的持久连接，连接管理器就会使用其中的一个，而不是再创建一个新的连接。</p>
+<p><code>PoolingHttpClientConnectionManager</code>维护的连接数在每个路由基础和总数上都有限制。默认，每个路由基础上的连接不超过2个，总连接数不能超过20。在实际应用中，这个限制可能会太小了，尤其是当服务器也使用Http协议时。</p>
+<p>下面的例子演示了如果调整连接池的参数：</p>
+<pre><code>    PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+    // 将最大连接数增加到200
+    cm.setMaxTotal(200);
+    // 将每个路由基础的连接增加到20
+    cm.setDefaultMaxPerRoute(20);
+    //将目标主机的最大连接数增加到50
+    HttpHost localhost = new HttpHost("www.yeetrack.com", 80);
+    cm.setMaxPerRoute(new HttpRoute(localhost), 50);
+
+    CloseableHttpClient httpClient = HttpClients.custom()
+            .setConnectionManager(cm)
+            .build();
+</code></pre>
+<p><a name="Connection-manager-shutdown"></a></p>
+<h3>2.3.4.关闭连接管理器</h3>
+<p>当一个HttpClient的实例不在使用，或者已经脱离它的作用范围，我们需要关掉它的连接管理器，来关闭掉所有的连接，释放掉这些连接占用的系统资源。</p>
+<pre><code>    CloseableHttpClient httpClient = &lt;...&gt;
+    httpClient.close();
+</code></pre>
+<p><a name="Multithreaded-request-execution"></a></p>
+<h2>2.4.多线程请求执行</h2>
+<p>当使用了请求连接池管理器（比如<code>PoolingClientConnectionManager</code>）后，HttpClient就可以同时执行多个线程的请求了。</p>
+<p><code>PoolingClientConnectionManager</code>会根据它的配置来分配请求连接。如果连接池中的所有连接都被占用了，那么后续的请求就会被阻塞，直到有连接被释放回连接池中。为了防止永远阻塞的情况发生，我们可以把<code>http.conn-manager.timeout</code>的值设置成一个整数。如果在超时时间内，没有可用连接，就会抛出<code>ConnectionPoolTimeoutException</code>异常。</p>
+<pre><code>    PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+    CloseableHttpClient httpClient = HttpClients.custom()
+            .setConnectionManager(cm)
+            .build();
+
+    // URL列表数组
+    String[] urisToGet = {
+        "http://www.domain1.com/",
+        "http://www.domain2.com/",
+        "http://www.domain3.com/",
+        "http://www.domain4.com/"
+    };
+
+    // 为每个url创建一个线程，GetThread是自定义的类
+    GetThread[] threads = new GetThread[urisToGet.length];
+    for (int i = 0; i &lt; threads.length; i++) {
+        HttpGet httpget = new HttpGet(urisToGet[i]);
+        threads[i] = new GetThread(httpClient, httpget);
+    }
+
+    // 启动线程
+    for (int j = 0; j &lt; threads.length; j++) {
+        threads[j].start();
+    }
+
+    // join the threads
+    for (int j = 0; j &lt; threads.length; j++) {
+        threads[j].join();
+    }
+</code></pre>
+<p>即使HttpClient的实例是线程安全的，可以被多个线程共享访问，但是仍旧推荐每个线程都要有自己专用实例的HttpContext。</p>
+<p>下面是GetThread类的定义：</p>
+<pre><code>    static class GetThread extends Thread {
+
+        private final CloseableHttpClient httpClient;
+        private final HttpContext context;
+        private final HttpGet httpget;
+
+        public GetThread(CloseableHttpClient httpClient, HttpGet httpget) {
+            this.httpClient = httpClient;
+            this.context = HttpClientContext.create();
+            this.httpget = httpget;
+        }
+
+        @Override
+        public void run() {
+            try {
+                CloseableHttpResponse response = httpClient.execute(
+                        httpget, context);
+                try {
+                    HttpEntity entity = response.getEntity();
+                } finally {
+                    response.close();
+                }
+            } catch (ClientProtocolException ex) {
+                // Handle protocol errors
+            } catch (IOException ex) {
+                // Handle I/O errors
+            }
+        }
+
+    }
+</code></pre>
+<p><a name="Connection-eviction-policy"></a></p>
+<h2>2.5. 连接回收策略</h2>
+<p>经典阻塞I/O模型的一个主要缺点就是只有当组侧I/O时，socket才能对I/O事件做出反应。当连接被管理器收回后，这个连接仍然存活，但是却无法监控socket的状态，也无法对I/O事件做出反馈。如果连接被服务器端关闭了，客户端监测不到连接的状态变化（也就无法根据连接状态的变化，关闭本地的socket）。</p>
+<p>HttpClient为了缓解这一问题造成的影响，会在使用某个连接前，监测这个连接是否已经过时，如果服务器端关闭了连接，那么连接就会失效。这种过时检查并不是100%有效，并且会给每个请求增加10到30毫秒额外开销。唯一一个可行的，且does not involve a one thread per socket model for idle connections的解决办法，是建立一个监控线程，来专门回收由于长时间不活动而被判定为失效的连接。这个监控线程可以周期性的调用<code>ClientConnectionManager</code>类的<code>closeExpiredConnections()</code>方法来关闭过期的连接，回收连接池中被关闭的连接。它也可以选择性的调用<code>ClientConnectionManager</code>类的<code>closeIdleConnections()</code>方法来关闭一段时间内不活动的连接。</p>
+<pre><code>    public static class IdleConnectionMonitorThread extends Thread {
+
+        private final HttpClientConnectionManager connMgr;
+        private volatile boolean shutdown;
+
+        public IdleConnectionMonitorThread(HttpClientConnectionManager connMgr) {
+            super();
+            this.connMgr = connMgr;
+        }
+
+        @Override
+        public void run() {
+            try {
+                while (!shutdown) {
+                    synchronized (this) {
+                        wait(5000);
+                        // 关闭失效的连接
+                        connMgr.closeExpiredConnections();
+                        // 可选的, 关闭30秒内不活动的连接
+                        connMgr.closeIdleConnections(30, TimeUnit.SECONDS);
+                    }
+                }
+            } catch (InterruptedException ex) {
+                // terminate
+            }
+        }
+
+        public void shutdown() {
+            shutdown = true;
+            synchronized (this) {
+                notifyAll();
+            }
+        }
+
+    }
+</code></pre>
+<p><a name="&quot;Connection-keep-alive-strategy"></a></p>
+<h2>2.6. 连接存活策略</h2>
+<p>Http规范没有规定一个持久连接应该保持存活多久。有些Http服务器使用非标准的<code>Keep-Alive</code>头消息和客户端进行交互，服务器端会保持数秒时间内保持连接。HttpClient也会利用这个头消息。如果服务器返回的响应中没有包含<code>Keep-Alive</code>头消息，HttpClient会认为这个连接可以永远保持。然而，很多服务器都会在不通知客户端的情况下，关闭一定时间内不活动的连接，来节省服务器资源。在某些情况下默认的策略显得太乐观，我们可能需要自定义连接存活策略。</p>
+<pre><code>    ConnectionKeepAliveStrategy myStrategy = new ConnectionKeepAliveStrategy() {
+
+        public long getKeepAliveDuration(HttpResponse response, HttpContext context) {
+            // Honor 'keep-alive' header
+            HeaderElementIterator it = new BasicHeaderElementIterator(
+                    response.headerIterator(HTTP.CONN_KEEP_ALIVE));
+            while (it.hasNext()) {
+                HeaderElement he = it.nextElement();
+                String param = he.getName();
+                String value = he.getValue();
+                if (value != null &amp;&amp; param.equalsIgnoreCase("timeout")) {
+                    try {
+                        return Long.parseLong(value) * 1000;
+                    } catch(NumberFormatException ignore) {
+                    }
+                }
+            }
+            HttpHost target = (HttpHost) context.getAttribute(
+                    HttpClientContext.HTTP_TARGET_HOST);
+            if ("www.naughty-server.com".equalsIgnoreCase(target.getHostName())) {
+                // Keep alive for 5 seconds only
+                return 5 * 1000;
+            } else {
+                // otherwise keep alive for 30 seconds
+                return 30 * 1000;
+            }
+        }
+
+    };
+    CloseableHttpClient client = HttpClients.custom()
+            .setKeepAliveStrategy(myStrategy)
+            .build();
+</code></pre>
+<p><a name="Connection-socket-factories"></a></p>
+<h2>2.7.socket连接工厂</h2>
+<p>Http连接使用<code>java.net.Socket</code>类来传输数据。这依赖于<code>ConnectionSocketFactory</code>接口来创建、初始化和连接socket。这样也就允许HttpClient的用户在代码运行时，指定socket初始化的代码。<code>PlainConnectionSocketFactory</code>是默认的创建、初始化明文socket（不加密）的工厂类。</p>
+<p>创建socket和使用socket连接到目标主机这两个过程是分离的，所以我们可以在连接发生阻塞时，关闭socket连接。</p>
+<pre><code>    HttpClientContext clientContext = HttpClientContext.create();
+    PlainConnectionSocketFactory sf = PlainConnectionSocketFactory.getSocketFactory();
+    Socket socket = sf.createSocket(clientContext);
+    int timeout = 1000; //ms
+    HttpHost target = new HttpHost("www.yeetrack.com");
+    InetSocketAddress remoteAddress = new InetSocketAddress(
+        InetAddress.getByName("www.yeetrack.com", 80);
+        //connectSocket源码中，实际没有用到target参数
+        sf.connectSocket(timeout, socket, target, remoteAddress, null, clientContext);
+</code></pre>
+<p><a name="Secure-socket-layering"></a></p>
+<h3>2.7.1.安全socket分层</h3>
+<p><code>LayeredConnectionSocketFactory</code>是<code>ConnectionSocketFactory</code>的拓展接口。分层socket工厂类可以在明文socket的基础上创建socket连接。分层socket主要用于在代理服务器之间创建安全socket。HttpClient使用<code>SSLSocketFactory</code>这个类实现安全socket，<code>SSLSocketFactory</code>实现了SSL/TLS分层。请知晓，HttpClient没有自定义任何加密算法。它完全依赖于Java加密标准（JCE）和安全套接字（JSEE）拓展。</p>
+<p><a name="Integration-with-connection-manager"></a></p>
+<h3>2.7.2.集成连接管理器</h3>
+<p>自定义的socket工厂类可以和指定的协议（Http、Https）联系起来，用来创建自定义的连接管理器。</p>
+<pre><code>    ConnectionSocketFactory plainsf = &lt;...&gt;
+    LayeredConnectionSocketFactory sslsf = &lt;...&gt;
+    Registry&lt;ConnectionSocketFactory&gt; r = RegistryBuilder.&lt;ConnectionSocketFactory&gt;create()
+            .register("http", plainsf)
+            .register("https", sslsf)
+            .build();
+
+    HttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(r);
+    HttpClients.custom()
+            .setConnectionManager(cm)
+            .build();
+</code></pre>
+<p><a name="SSL-TLS-customization"></a></p>
+<h3>2.7.3.SSL/TLS定制</h3>
+<p>HttpClient使用<code>SSLSocketFactory</code>来创建ssl连接。<code>SSLSocketFactory</code>允许用户高度定制。它可以接受<code>javax.net.ssl.SSLContext</code>这个类的实例作为参数，来创建自定义的ssl连接。</p>
+<pre><code>    HttpClientContext clientContext = HttpClientContext.create();
+    KeyStore myTrustStore = &lt;...&gt;
+    SSLContext sslContext = SSLContexts.custom()
+            .useTLS()
+            .loadTrustMaterial(myTrustStore)
+            .build();
+    SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext);
+</code></pre>
+<p><a name="Hostname-verification"></a></p>
+<h3>2.7.4.域名验证</h3>
+<p>除了信任验证和在ssl/tls协议层上进行客户端认证，HttpClient一旦建立起连接，就可以选择性验证目标域名和存储在X.509证书中的域名是否一致。这种验证可以为服务器信任提供额外的保障。<code>X509HostnameVerifier</code>接口代表主机名验证的策略。在HttpClient中，<code>X509HostnameVerifier</code>有三个实现类。重要提示：主机名有效性验证不应该和ssl信任验证混为一谈。</p>
+<ul>
+<li><strong><code>StrictHostnameVerifier</code>:</strong> 严格的主机名验证方法和java 1.4,1.5,1.6验证方法相同。和IE6的方式也大致相同。这种验证方式符合RFC 2818通配符。The hostname must match either the first CN, or any of the subject-alts. A wildcard can occur in the CN, and in any of the subject-alts.</li>
+<li><strong><code>BrowserCompatHostnameVerifier</code>:</strong> 这种验证主机名的方法，和Curl及firefox一致。The hostname must match either the first CN, or any of the subject-alts. A wildcard can occur in the CN, and in any of the subject-alts.<code>StrictHostnameVerifier</code>和<code>BrowserCompatHostnameVerifier</code>方式唯一不同的地方就是，带有通配符的域名（比如*.yeetrack.com),<code>BrowserCompatHostnameVerifier</code>方式在匹配时会匹配所有的的子域名，包括 a.b.yeetrack.com .</li>
+<li><strong><code>AllowAllHostnameVerifier</code>:</strong> 这种方式不对主机名进行验证，验证功能被关闭，是个空操作，所以它不会抛出<code>javax.net.ssl.SSLException</code>异常。HttpClient默认使用<code>BrowserCompatHostnameVerifier</code>的验证方式。如果需要，我们可以手动执行验证方式。
+<pre><code>SSLContext sslContext = SSLContexts.createSystemDefault();
+SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(
+        sslContext,
+        SSLConnectionSocketFactory.STRICT_HOSTNAME_VERIFIER);
+</code></pre>
+</li>
+</ul>
+<p><a name="HttpClient-proxy-configuration"></a></p>
+<h2>2.8.HttpClient代理服务器配置</h2>
+<p>尽管，HttpClient支持复杂的路由方案和代理链，它同样也支持直接连接或者只通过一跳的连接。</p>
+<p>使用代理服务器最简单的方式就是，指定一个默认的proxy参数。</p>
+<pre><code>    HttpHost proxy = new HttpHost("someproxy", 8080);
+    DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxy);
+    CloseableHttpClient httpclient = HttpClients.custom()
+            .setRoutePlanner(routePlanner)
+            .build();
+</code></pre>
+<p>我们也可以让HttpClient去使用jre的代理服务器。</p>
+<pre><code>    SystemDefaultRoutePlanner routePlanner = new SystemDefaultRoutePlanner(
+        ProxySelector.getDefault());
+    CloseableHttpClient httpclient = HttpClients.custom()
+            .setRoutePlanner(routePlanner)
+            .build();
+</code></pre>
+<p>又或者，我们也可以手动配置<code>RoutePlanner</code>，这样就可以完全控制Http路由的过程。</p>
+<pre><code>    HttpRoutePlanner routePlanner = new HttpRoutePlanner() {
+
+        public HttpRoute determineRoute(
+                HttpHost target,
+                HttpRequest request,
+                HttpContext context) throws HttpException {
+            return new HttpRoute(target, null,  new HttpHost("someproxy", 8080),
+                    "https".equalsIgnoreCase(target.getSchemeName()));
+        }
+
+    };
+    CloseableHttpClient httpclient = HttpClients.custom()
+            .setRoutePlanner(routePlanner)
+            .build();
+        }
+    }
+</code></pre>
+<p>&nbsp;</p>
+<div style="margin-top: 15px; font-style: italic"><a href="https://www.yeetrack.com/"><strong>易踪网：每天进步一点点</strong></a><p></p>
+<p><strong>转载请保留链接地址:</strong> <a href="https://www.yeetrack.com/?p=782">https://www.yeetrack.com/?p=782</a></p>
+</div>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta" style="clear:both;">
+		This entry was posted in <a href="https://www.yeetrack.com/?cat=33" rel="category">代码</a> and tagged <a href="https://www.yeetrack.com/?tag=java" rel="tag">java</a>, <a href="https://www.yeetrack.com/?tag=%e4%bb%a3%e7%a0%81" rel="tag">代码</a>, <a href="https://www.yeetrack.com/?tag=%e6%8a%80%e6%9c%af" rel="tag">技术</a>, <a href="https://www.yeetrack.com/?tag=%e8%87%aa%e5%8a%a8%e5%8c%96%e6%b5%8b%e8%af%95" rel="tag">自动化测试</a>, <a href="https://www.yeetrack.com/?tag=%e8%bd%af%e4%bb%b6" rel="tag">软件</a>, <a href="https://www.yeetrack.com/?tag=%e8%bd%af%e4%bb%b6%e6%b5%8b%e8%af%95" rel="tag">软件测试</a> by <a href="https://www.yeetrack.com/?author=2">kongkong</a>. Bookmark the <a href="https://www.yeetrack.com/?p=782" title="Permalink to HttpClient4.3教程 第二章 连接管理" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-782 -->
+
+					
+	
+		<div id="comments">
+		<h2 id="comments-title">
+			2 thoughts on “<span>HttpClient4.3教程 第二章 连接管理</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-25">
+		<article id="comment-25" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<span class="fn">∮无尽￠寻找</span> on <a href="https://www.yeetrack.com/?p=782#comment-25"><time pubdate="" datetime="2014-11-07T16:39:55+08:00">2014 年 11 月 7 日 at 下午 4:39</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>有*获，谢谢分享(握手)(强)</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.yeetrack.com/?p=782&amp;replytocom=25#respond" data-commentid="25" data-postid="782" data-belowelement="comment-25" data-respondelement="respond" aria-label="回复给∮无尽￠寻找">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1310">
+		<article id="comment-1310" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<span class="fn">冯文凯</span> on <a href="https://www.yeetrack.com/?p=782#comment-1310"><time pubdate="" datetime="2018-09-19T12:58:37+08:00">2018 年 9 月 19 日 at 下午 12:58</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>IdleConnectionMonitorThread  这个类怎么使用</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-link" href="https://www.yeetrack.com/?p=782&amp;replytocom=1310#respond" data-commentid="1310" data-postid="782" data-belowelement="comment-1310" data-respondelement="respond" aria-label="回复给冯文凯">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+			</div><!-- #comments -->
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.yeetrack.com/?p=782#respond" style="display:none;">取消回复</a></small></h3>			<form action="https://www.yeetrack.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p><p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">姓名 <span class="required">*</span></label> <input x-autocompletetype="name-full" id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">电子邮件 <span class="required">*</span></label> <input x-autocompletetype="email" id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">站点</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">在此浏览器中保存我的名字、电邮和网站。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="782" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p id="wp_ssc" style="font-size: 80%;opacity:0.2;filter:alpha(opacity=20)"><input type="hidden" id="wp_ssc_16" name="wp_ssc_16" value="MTU2NTMzMjIwMA=="> (Spamcheck Enabled)</p><script type="text/javascript">var wp_scck = ["hash", "node", "MTU2NTMzMjIwMA==", "MTM0MDE0Njgw==", "value", "wp_ssc_16", "getElementById"], wp_ssc = {};wp_ssc[wp_scck[1]] = document[wp_scck[6]](wp_scck[5]);wp_ssc[wp_scck[4]] = wp_scck[2];if (wp_ssc[wp_scck[1]]) { wp_ssc[wp_scck[1]][wp_scck[4]] = wp_ssc[wp_scck[4]]; }</script>			</form>
+			</div><!-- #respond -->
+	
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+		
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="views-2" class="widget widget_views"><h3 class="widget-title">热门文章</h3><ul>
+<li><a href="https://www.yeetrack.com/?p=773" title="HttpClient 4.3教程 第一章 基本概念">HttpClient 4.3教程 第一章 基本概念</a> - 40,744 views</li><li><a href="https://www.yeetrack.com/?p=782" title="HttpClient4.3教程 第二章 连接管理">HttpClient4.3教程 第二章 连接管理</a> - 38,524 views</li><li><a href="https://www.yeetrack.com/?p=779" title="HttpClient 4.3教程">HttpClient 4.3教程</a> - 20,068 views</li><li><a href="https://www.yeetrack.com/?p=1331" title="https网站解决block:mixed-content问题">https网站解决block:mixed-content问题</a> - 18,970 views</li><li><a href="https://www.yeetrack.com/?p=7" title="《冰与火之歌》第三季开播">《冰与火之歌》第三季开播</a> - 16,126 views</li><li><a href="https://www.yeetrack.com/?p=760" title="DefaultHttpClient is deprecated">DefaultHttpClient is deprecated</a> - 12,918 views</li><li><a href="https://www.yeetrack.com/?p=822" title="HttpClient4.3教程 第三章 Http状态管理">HttpClient4.3教程 第三章 Http状态管理</a> - 12,438 views</li><li><a href="https://www.yeetrack.com/?p=861" title="IOS Monkey测试UI AutoMonkey">IOS Monkey测试UI AutoMonkey</a> - 11,914 views</li><li><a href="https://www.yeetrack.com/?p=639" title="IOS、Android自动化测试框架Appium概述">IOS、Android自动化测试框架Appium概述</a> - 9,949 views</li><li><a href="https://www.yeetrack.com/?p=786" title="CloseableHttpClient加载证书来访问https网站">CloseableHttpClient加载证书来访问https网站</a> - 9,474 views</li><li><a href="https://www.yeetrack.com/?p=660" title="DefaultHttpClient 报错https peer not authenticated解决">DefaultHttpClient 报错https peer not authenticated解决</a> - 9,080 views</li><li><a href="https://www.yeetrack.com/?p=1051" title="jmeter命令行模式运行，实时获取压测结果">jmeter命令行模式运行，实时获取压测结果</a> - 8,618 views</li><li><a href="https://www.yeetrack.com/?p=581" title="apache-cxf测试webservice添加header信息">apache-cxf测试webservice添加header信息</a> - 8,345 views</li><li><a href="https://www.yeetrack.com/?p=122" title="wordpress启动初始化过程">wordpress启动初始化过程</a> - 7,255 views</li><li><a href="https://www.yeetrack.com/?p=558" title="jenkins+ant+jmeter自动化性能测试平台">jenkins+ant+jmeter自动化性能测试平台</a> - 6,935 views</li><li><a href="https://www.yeetrack.com/?p=849" title="Jmeter使用SSL（HTTPS协议）">Jmeter使用SSL（HTTPS协议）</a> - 6,918 views</li><li><a href="https://www.yeetrack.com/?p=560" title="selenium webdriver 执行javascript代码">selenium webdriver 执行javascript代码</a> - 6,867 views</li><li><a href="https://www.yeetrack.com/?p=825" title="HttpClient4.3教程 第四章 HTTP认证">HttpClient4.3教程 第四章 HTTP认证</a> - 6,814 views</li><li><a href="https://www.yeetrack.com/?p=899" title="使用maven warpath插件合并多module的war包">使用maven warpath插件合并多module的war包</a> - 6,206 views</li><li><a href="https://www.yeetrack.com/?p=770" title="HttpClient 4.3教程-前言">HttpClient 4.3教程-前言</a> - 6,071 views</li><li><a href="https://www.yeetrack.com/?p=1047" title="监控平台bosun快速入门">监控平台bosun快速入门</a> - 6,030 views</li><li><a href="https://www.yeetrack.com/?p=872" title="php使用COMET实现服务器向浏览器推送数据">php使用COMET实现服务器向浏览器推送数据</a> - 5,822 views</li><li><a href="https://www.yeetrack.com/?p=22" title="Jmeter 自定义测试请求">Jmeter 自定义测试请求</a> - 5,694 views</li><li><a href="https://www.yeetrack.com/?page_id=175" title="关于我">关于我</a> - 5,487 views</li><li><a href="https://www.yeetrack.com/?p=629" title="Android自动化测试之MonkeyRunner">Android自动化测试之MonkeyRunner</a> - 5,467 views</li><li><a href="https://www.yeetrack.com/?p=621" title="防止dns污染，修改host文件，域名列表">防止dns污染，修改host文件，域名列表</a> - 5,373 views</li><li><a href="https://www.yeetrack.com/?p=1232" title="Jodd之HTTP">Jodd之HTTP</a> - 5,298 views</li><li><a href="https://www.yeetrack.com/?p=1081" title="Jenkins迁移，ln（java.nio.file.DirectoryNotEmptyException）错误">Jenkins迁移，ln（java.nio.file.DirectoryNotEmptyException）错误</a> - 5,280 views</li><li><a href="https://www.yeetrack.com/?p=514" title="Java httpclient 模拟NTLM域登录">Java httpclient 模拟NTLM域登录</a> - 5,181 views</li><li><a href="https://www.yeetrack.com/?p=832" title="HttpClient4.3 教程 第五章 快速API">HttpClient4.3 教程 第五章 快速API</a> - 5,080 views</li></ul>
+</aside>		<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">近期文章</h3>		<ul>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1347">Code Health：Understanding Code In Review</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1342">批量下载豆瓣fm中收藏的音乐</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1339">Java int溢出问题</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1331">https网站解决block:mixed-content问题</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1314">网站弃用http，改用https</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1310">Http Mock服务</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1305">汽车品牌从属关系</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1300">小博客搬到阿里云ECS</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1296">Java G1垃圾收集器入门</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1293">jodd之Printf</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1290">jodd中的缓存</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1280">jmeter BeanShell PreProcessor组件</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1277">Merry Christmas</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1272">一眉道人–没落的香港僵尸片</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1269">不要让孩子输在起跑线上</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1263">jmeter summary report踩坑记录</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1240">protobuf概述</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1232">Jodd之HTTP</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1226">jodd之JDateTime</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1220">计算两字符串的相似度</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1215">mysql更改数据存放目录</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1211">顶级的JavaScript框架、库、工具及其使用</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1204">爬山之东灵山</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1201">linux下的json命令行工具–jq</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1197">完美陌生人</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1192">jodd简介</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1178">走近Guava(七): 文件操作</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1177">走近Guava(六): 事件总线EventBus</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1176">走近Guava(五): 缓存</a>
+									</li>
+											<li>
+					<a href="https://www.yeetrack.com/?p=1175">走近Guava(四): 并发</a>
+									</li>
+					</ul>
+		</aside>		</div><!-- #secondary .widget-area -->
+		
+		<div id="tertiary" class="widget-area" role="complementary">
+			
+				<aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">标签云</h3><div class="tagcloud"><a href="https://www.yeetrack.com/?tag=android" class="tag-cloud-link tag-link-43 tag-link-position-1" style="font-size: 15.478260869565pt;" aria-label="Android (21个项目)">Android</a>
+<a href="https://www.yeetrack.com/?tag=backtrack" class="tag-cloud-link tag-link-27 tag-link-position-2" style="font-size: 11.217391304348pt;" aria-label="BackTrack (6个项目)">BackTrack</a>
+<a href="https://www.yeetrack.com/?tag=csrf" class="tag-cloud-link tag-link-28 tag-link-position-3" style="font-size: 8pt;" aria-label="csrf (2个项目)">csrf</a>
+<a href="https://www.yeetrack.com/?tag=guava" class="tag-cloud-link tag-link-65 tag-link-position-4" style="font-size: 11.652173913043pt;" aria-label="guava (7个项目)">guava</a>
+<a href="https://www.yeetrack.com/?tag=ios" class="tag-cloud-link tag-link-44 tag-link-position-5" style="font-size: 11.652173913043pt;" aria-label="Ios (7个项目)">Ios</a>
+<a href="https://www.yeetrack.com/?tag=it" class="tag-cloud-link tag-link-18 tag-link-position-6" style="font-size: 11.217391304348pt;" aria-label="it (6个项目)">it</a>
+<a href="https://www.yeetrack.com/?tag=java" class="tag-cloud-link tag-link-8 tag-link-position-7" style="font-size: 21.565217391304pt;" aria-label="java (108个项目)">java</a>
+<a href="https://www.yeetrack.com/?tag=javascript" class="tag-cloud-link tag-link-9 tag-link-position-8" style="font-size: 11.217391304348pt;" aria-label="JavaScript (6个项目)">JavaScript</a>
+<a href="https://www.yeetrack.com/?tag=jmeter" class="tag-cloud-link tag-link-48 tag-link-position-9" style="font-size: 12.086956521739pt;" aria-label="jmeter (8个项目)">jmeter</a>
+<a href="https://www.yeetrack.com/?tag=jodd" class="tag-cloud-link tag-link-66 tag-link-position-10" style="font-size: 10.608695652174pt;" aria-label="jodd (5个项目)">jodd</a>
+<a href="https://www.yeetrack.com/?tag=linux" class="tag-cloud-link tag-link-11 tag-link-position-11" style="font-size: 15.652173913043pt;" aria-label="linux (22个项目)">linux</a>
+<a href="https://www.yeetrack.com/?tag=mac" class="tag-cloud-link tag-link-52 tag-link-position-12" style="font-size: 10.608695652174pt;" aria-label="mac (5个项目)">mac</a>
+<a href="https://www.yeetrack.com/?tag=maven" class="tag-cloud-link tag-link-45 tag-link-position-13" style="font-size: 12.086956521739pt;" aria-label="maven (8个项目)">maven</a>
+<a href="https://www.yeetrack.com/?tag=memcached" class="tag-cloud-link tag-link-55 tag-link-position-14" style="font-size: 8pt;" aria-label="memcached (2个项目)">memcached</a>
+<a href="https://www.yeetrack.com/?tag=mysql" class="tag-cloud-link tag-link-56 tag-link-position-15" style="font-size: 9.0434782608696pt;" aria-label="mysql (3个项目)">mysql</a>
+<a href="https://www.yeetrack.com/?tag=nginx" class="tag-cloud-link tag-link-58 tag-link-position-16" style="font-size: 9.0434782608696pt;" aria-label="nginx (3个项目)">nginx</a>
+<a href="https://www.yeetrack.com/?tag=php" class="tag-cloud-link tag-link-24 tag-link-position-17" style="font-size: 17.391304347826pt;" aria-label="php (35个项目)">php</a>
+<a href="https://www.yeetrack.com/?tag=redis" class="tag-cloud-link tag-link-54 tag-link-position-18" style="font-size: 10.608695652174pt;" aria-label="redis (5个项目)">redis</a>
+<a href="https://www.yeetrack.com/?tag=selenium" class="tag-cloud-link tag-link-50 tag-link-position-19" style="font-size: 9.0434782608696pt;" aria-label="selenium (3个项目)">selenium</a>
+<a href="https://www.yeetrack.com/?tag=sql%e6%b3%a8%e5%85%a5" class="tag-cloud-link tag-link-31 tag-link-position-20" style="font-size: 10.608695652174pt;" aria-label="sql注入 (5个项目)">sql注入</a>
+<a href="https://www.yeetrack.com/?tag=ubuntu" class="tag-cloud-link tag-link-12 tag-link-position-21" style="font-size: 12.521739130435pt;" aria-label="ubuntu (9个项目)">ubuntu</a>
+<a href="https://www.yeetrack.com/?tag=windows" class="tag-cloud-link tag-link-20 tag-link-position-22" style="font-size: 10.608695652174pt;" aria-label="windows (5个项目)">windows</a>
+<a href="https://www.yeetrack.com/?tag=wordpress" class="tag-cloud-link tag-link-25 tag-link-position-23" style="font-size: 11.217391304348pt;" aria-label="wordpress (6个项目)">wordpress</a>
+<a href="https://www.yeetrack.com/?tag=xss" class="tag-cloud-link tag-link-30 tag-link-position-24" style="font-size: 9.0434782608696pt;" aria-label="xss (3个项目)">xss</a>
+<a href="https://www.yeetrack.com/?tag=%e4%ba%92%e8%81%94%e7%bd%91" class="tag-cloud-link tag-link-15 tag-link-position-25" style="font-size: 14.521739130435pt;" aria-label="互联网 (16个项目)">互联网</a>
+<a href="https://www.yeetrack.com/?tag=%e4%bb%a3%e7%a0%81" class="tag-cloud-link tag-link-7 tag-link-position-26" style="font-size: 22pt;" aria-label="代码 (123个项目)">代码</a>
+<a href="https://www.yeetrack.com/?tag=%e5%9b%be%e7%89%87" class="tag-cloud-link tag-link-3 tag-link-position-27" style="font-size: 12.521739130435pt;" aria-label="图片 (9个项目)">图片</a>
+<a href="https://www.yeetrack.com/?tag=%e5%9c%a8%e8%b7%af%e4%b8%8a" class="tag-cloud-link tag-link-57 tag-link-position-28" style="font-size: 9.9130434782609pt;" aria-label="在路上 (4个项目)">在路上</a>
+<a href="https://www.yeetrack.com/?tag=%e5%ae%89%e5%85%a8" class="tag-cloud-link tag-link-26 tag-link-position-29" style="font-size: 16.782608695652pt;" aria-label="安全 (30个项目)">安全</a>
+<a href="https://www.yeetrack.com/?tag=%e5%bd%b1%e9%9f%b3" class="tag-cloud-link tag-link-4 tag-link-position-30" style="font-size: 17.130434782609pt;" aria-label="影音 (33个项目)">影音</a>
+<a href="https://www.yeetrack.com/?tag=%e6%80%a7%e8%83%bd%e6%b5%8b%e8%af%95" class="tag-cloud-link tag-link-49 tag-link-position-31" style="font-size: 12.869565217391pt;" aria-label="性能测试 (10个项目)">性能测试</a>
+<a href="https://www.yeetrack.com/?tag=%e6%8a%80%e6%9c%af" class="tag-cloud-link tag-link-5 tag-link-position-32" style="font-size: 21.652173913043pt;" aria-label="技术 (110个项目)">技术</a>
+<a href="https://www.yeetrack.com/?tag=%e6%9d%82%e8%b0%88" class="tag-cloud-link tag-link-14 tag-link-position-33" style="font-size: 15.652173913043pt;" aria-label="杂谈 (22个项目)">杂谈</a>
+<a href="https://www.yeetrack.com/?tag=%e6%b5%8f%e8%a7%88%e5%99%a8" class="tag-cloud-link tag-link-22 tag-link-position-34" style="font-size: 12.086956521739pt;" aria-label="浏览器 (8个项目)">浏览器</a>
+<a href="https://www.yeetrack.com/?tag=%e6%b8%b8%e6%88%8f" class="tag-cloud-link tag-link-21 tag-link-position-35" style="font-size: 10.608695652174pt;" aria-label="游戏 (5个项目)">游戏</a>
+<a href="https://www.yeetrack.com/?tag=%e7%94%b5%e5%bd%b1" class="tag-cloud-link tag-link-19 tag-link-position-36" style="font-size: 12.869565217391pt;" aria-label="电影 (10个项目)">电影</a>
+<a href="https://www.yeetrack.com/?tag=%e7%a7%bb%e5%8a%a8%e7%bb%88%e7%ab%af" class="tag-cloud-link tag-link-16 tag-link-position-37" style="font-size: 16.086956521739pt;" aria-label="移动终端 (25个项目)">移动终端</a>
+<a href="https://www.yeetrack.com/?tag=%e7%bd%91%e7%bb%9c" class="tag-cloud-link tag-link-23 tag-link-position-38" style="font-size: 11.652173913043pt;" aria-label="网络 (7个项目)">网络</a>
+<a href="https://www.yeetrack.com/?tag=%e7%be%8e%e5%89%a7" class="tag-cloud-link tag-link-6 tag-link-position-39" style="font-size: 14.086956521739pt;" aria-label="美剧 (14个项目)">美剧</a>
+<a href="https://www.yeetrack.com/?tag=%e8%87%aa%e5%8a%a8%e5%8c%96%e6%b5%8b%e8%af%95" class="tag-cloud-link tag-link-42 tag-link-position-40" style="font-size: 17.739130434783pt;" aria-label="自动化测试 (39个项目)">自动化测试</a>
+<a href="https://www.yeetrack.com/?tag=%e8%af%bb%e4%b9%a6" class="tag-cloud-link tag-link-17 tag-link-position-41" style="font-size: 9.0434782608696pt;" aria-label="读书 (3个项目)">读书</a>
+<a href="https://www.yeetrack.com/?tag=%e8%bd%af%e4%bb%b6" class="tag-cloud-link tag-link-13 tag-link-position-42" style="font-size: 19.304347826087pt;" aria-label="软件 (59个项目)">软件</a>
+<a href="https://www.yeetrack.com/?tag=%e8%bd%af%e4%bb%b6%e6%b5%8b%e8%af%95" class="tag-cloud-link tag-link-41 tag-link-position-43" style="font-size: 18.695652173913pt;" aria-label="软件测试 (50个项目)">软件测试</a>
+<a href="https://www.yeetrack.com/?tag=%e9%9f%b3%e4%b9%90" class="tag-cloud-link tag-link-10 tag-link-position-44" style="font-size: 11.217391304348pt;" aria-label="音乐 (6个项目)">音乐</a>
+<a href="https://www.yeetrack.com/?tag=%e9%bb%91%e5%ae%a2%e5%b7%a5%e5%85%b7" class="tag-cloud-link tag-link-29 tag-link-position-45" style="font-size: 12.869565217391pt;" aria-label="黑客工具 (10个项目)">黑客工具</a></div>
+</aside><aside id="linkcat-39" class="widget widget_links"><h3 class="widget-title">SEO Friend Link</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://blog.csdn.net/kittyboy0001" target="_blank">Army的专栏</a></li>
+<li><a href="http://www.shenyanchao.cn/" rel="co-worker" target="_blank">Blues小站</a></li>
+<li><a href="http://blog.chengmin.name/" target="_blank">程敏的博客</a></li>
+
+	</ul>
+</aside>
+			
+		</div><!-- #tertiary .widget-area -->
+		
+	</div><!-- #main -->
+	
+</div><!-- #page -->
+<footer id="footer" class="clearfix" role="contentinfo">
+	<section id="colophon" class="clearfix">
+				<div id="top-scroll">
+			<a href="https://www.yeetrack.com/?p=782#admired-top" class="scroll" title="回到顶部"><div id="scroll-top"></div></a>
+		</div>
+			
+			<div id="footer-html">
+								网站备案/许可证号	京ICP备13033436号-1							</div><!-- #footer-html -->
+			<div id="footer-info">
+								<div id="site-info">© 2019					<a href="https://www.yeetrack.com/" title="易踪网" rel="home">
+						易踪网					</a>
+				</div><!-- #site-info -->
+								<div id="site-generator">
+										<a href="http://wp-ultra.com/" rel="generator">Admired Theme</a>
+				</div>
+			</div>
+	</section>	
+<!--百度分享-->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"150"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--百度分享结束-->
+</footer>
+<!-- #footer -->
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/comment-reply.min.js.下载"></script>
+<script type="text/javascript" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/wp-embed.min.js.下载"></script>
+
+<script type="text/javascript">
+	jQuery('a[href^="#admired-top"]').live('click',function(event){
+		event.preventDefault();
+		var target_offset = jQuery(this.hash).offset() ? jQuery(this.hash).offset().top : 0;
+		jQuery('html, body').animate({scrollTop:target_offset}, 800);
+	});
+</script>
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1cbf03e25216b2b3294bfa5761b97522";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--百度统计end-->
+
+
+<iframe frameborder="0" id="bdSharePopup_selectshare1565333694707bg" class="bdselect_share_bg" style="top: 7310px; left: 431px; display: none; width: 158px; height: 76px;" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/saved_resource.html"></iframe><div id="bdSharePopup_selectshare1565333694707box" style="top: 7310px; left: 431px; display: none; width: 158px;" share-type="selectshare" class="bdselect_share_box" data-bd-bind="1565333694707"><div class="selectshare-mod-triangle"><div class="triangle-border"></div><div class="triangle-inset"></div></div><div class="bdselect_share_head" style="width: 158px;"><span>分享到</span><a href="http://www.baidu.com/s?wd=SSLSocketFactory&amp;tn=SE_hldp08010_vurs2xrp" class="bdselect_share_dialog_search" target="_blank"><i class="bdselect_share_dialog_search_i"></i><span class="bdselect_share_dialog_search_span" style="display: none;">百度一下</span></a><a class="bdselect_share_dialog_close"></a></div><div class="bdselect_share_content"><ul class="bdselect_share_list bdshare-button-style1-16"><div class="bdselect_share_partners"><a href="https://www.yeetrack.com/?p=782#" class="bds_qzone" data-cmd="qzone"></a><a href="https://www.yeetrack.com/?p=782#" class="bds_tsina" data-cmd="tsina"></a><a href="https://www.yeetrack.com/?p=782#" class="bds_tqq" data-cmd="tqq"></a><a href="https://www.yeetrack.com/?p=782#" class="bds_renren" data-cmd="renren"></a><a href="https://www.yeetrack.com/?p=782#" class="bds_weixin" data-cmd="weixin"></a></div><a href="https://www.yeetrack.com/?p=782#" class="bds_more" data-cmd="more"></a></ul></div></div><div id="bdimgshare_1565333694721" class="sr-bdimgshare sr-bdimgshare-list sr-bdimgshare-16 sr-bdimgshare-black" style="height:36px;line-height:26px;font-size:12px;width:autopx;display:none;" data-bd-bind="1565333694721"><div class="bdimgshare-bg"></div><div class="bdimgshare-content bdsharebuttonbox bdshare-button-style0-16"><label class="bdimgshare-lbl">分享到：</label><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bds_qzone" data-cmd="qzone" hidefocus=""></a><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bds_tsina" data-cmd="tsina" hidefocus=""></a><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bds_tqq" data-cmd="tqq" hidefocus=""></a><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bds_renren" data-cmd="renren" hidefocus=""></a><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bds_weixin" data-cmd="weixin" hidefocus=""></a><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bds_more" data-cmd="more" hidefocus=""></a></div></div><div class="bdshare-slide-button-box bdshare-slide-style-r2" style="top: 150px; width: 0px; z-index: 99999; right: 0px;" data-bd-bind="1565333694724"><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="bdshare-slide-button" style="left: -24px;"></a><div class="bdshare-slide-list-box" style="width: 0px; display: none;"><div class="bdshare-slide-top">分享到</div><div class="bdshare-slide-list"><ul class="bdshare-slide-list-ul" style="width: 226px;"></ul></div><div class="bdshare-slide-bottom" style="width: 226px;"><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="slide-more" data-cmd="more">更多...</a></div></div></div><iframe frameborder="0" id="bdSharePopup_1565334454235bg" class="bdshare_popup_bg" style="height: 326px; width: 228px; top: 7379px; left: 772px; display: none;" src="./HttpClient4.3教程 第二章 连接管理 _ 易踪网_files/saved_resource(1).html"></iframe><div class="bdshare_popup_box" id="bdSharePopup_1565334454235box" style="width: 226px; top: 7379px; left: 772px; display: none;"><div class="bdshare_popup_top">分享到</div><ul class="bdshare_popup_list"><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_mshare" data-cmd="mshare">一键分享</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_qzone" data-cmd="qzone">QQ空间</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_tsina" data-cmd="tsina">新浪微博</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_bdysc" data-cmd="bdysc">百度云收藏</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_weixin" data-cmd="weixin">微信</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_renren" data-cmd="renren">人人网</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_tqq" data-cmd="tqq">腾讯微博</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_bdxc" data-cmd="bdxc">百度相册</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_kaixin001" data-cmd="kaixin001">开心网</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_tqf" data-cmd="tqf">腾讯朋友</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_tieba" data-cmd="tieba">百度贴吧</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_douban" data-cmd="douban">豆瓣网</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_tsohu" data-cmd="tsohu">搜狐微博</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_bdhome" data-cmd="bdhome">百度新首页</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_sqq" data-cmd="sqq">QQ好友</a></li><li><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_thx" data-cmd="thx">和讯微博</a></li></ul><div class="bdshare_popup_bottom"><a href="https://www.yeetrack.com/?p=782#" onclick="return false;" class="popup_more" data-cmd="more" target="_blank;">更多...</a></div></div></body></html>

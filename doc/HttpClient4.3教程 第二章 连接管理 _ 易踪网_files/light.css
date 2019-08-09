@@ -1,0 +1,60 @@
+/*
+ * LIGHT Skin
+ *
+ * @since admired 1.0
+ */
+
+body {
+	background: #F9F9F9;
+}
+pre {
+	background: #E4E4E4;
+}
+#head-wrapper,
+#footer {
+	background-image: url('../images/light-header.png');
+}
+#head-wrapper{
+	-moz-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1) inset;
+}
+#footer {
+	-moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1) inset;
+}
+/* =Content
+----------------------------------------------- */
+.blog .sticky, .post, #page .page, .page-title {
+	background: #fcfcfc;
+}
+/* =Widgets
+----------------------------------------------- */
+.widget {
+	background: #fcfcfc;
+}
+#site-title a {
+	color: #0281d4;
+}
+#supplementary .widget-title {
+	color: #999;
+}
+#first .widget a,
+#second .widget a,
+#third .widget a, 
+#first .widget_calendar #wp-calendar th,
+#second .widget_calendar #wp-calendar th,
+#third .widget_calendar #wp-calendar th,
+#site-info,
+#site-generator,
+#site-info a,
+#site-generator a{
+	color: #aaa;
+	text-shadow: 0 -1px 0 #333;
+}
+#first .widget_calendar #wp-calendar caption,
+#second .widget_calendar #wp-calendar caption, 
+#third .widget_calendar #wp-calendar caption {
+	color: #888;
+}
